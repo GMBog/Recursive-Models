@@ -1,6 +1,8 @@
 Structural Equation Models (SEM)
 
-Bash scripts to run SEM in Blupf90 software
+Bash scripts to run Structural Equation models or Recursive models using BLUPF90 software.
+
+
 
 
 To compile results in a single file when all your jobs are done:
