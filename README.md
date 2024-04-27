@@ -8,6 +8,11 @@ We will run a bi-trait model where y1 (dependent trait) enters as covariable in 
 y2 = y1 + Xb + a + e
 
 
+
+
+
+
+
 To compile results in a single file when all your jobs are done:
 cat /SEM_blupf90/ASVS/results_SEM* > table_ALLresults_SEM.txt
 cat /SEM_blupf90/ASVS/solEBV* > solutions_EBV_SEM.txt
