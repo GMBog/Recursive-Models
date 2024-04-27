@@ -22,8 +22,8 @@ done
 microbiome=$((col - 7))
 
 #Setting Input and Output files
-INPUTDIR=/blue/mateescu/martinezbogg.wisc/dirfiles
-OUTPUTDIR=/blue/mateescu/martinezbogg.wisc/model_omics/model_SEM/SEM_blupf90/ASVS
+INPUTDIR=/dirfiles
+OUTPUTDIR=/SEM_blupf90/ASVS
 
 #Create a directory for each phenotype (y2) and microbiome (y1)
 mkdir $OUTPUTDIR/${phenotype}/${microbiome}
@@ -37,17 +37,18 @@ cut -f 1,2,3,4,$col,$phenotype -d " " data.dat > tmp
 mv tmp data.dat
 
 ##Copying the genome data (it will be remove at the end of the loop)
-cp $INPUTDIR/G_matrix_448 G.mat
+cp $INPUTDIR/G_matrix G.mat
 
-##Choosing the parameter file to use for each model:
+#If you traits with different fixed effects then you will need different paramfile.par
+#Choosing the parameter file to use for each model:
 ###Trait 5 does not have all fixed effects, only the microbiome (y1) effect
 ###Trait 6 and 7 have all effects
 
 if [ $phenotype -eq 5 ]; then 
-	renumf90 /blue/mateescu/martinezbogg.wisc/model_omics/model_SEM/SEM_blupf90/paramSEM5.par > renum.out
+	renumf90 /SEM_blupf90/paramSEM5.par > renum.out
 
 else
-	renumf90 /blue/mateescu/martinezbogg.wisc/model_omics/model_SEM/SEM_blupf90/paramSEM67.par > renum.out
+	renumf90 /SEM_blupf90/paramSEM67.par > renum.out
 
 fi
 
@@ -88,14 +89,13 @@ se_lambda=$(sed -n '3'p solutions | awk '{print $5}')
 
 #Creating a new file with the variance components
 echo $phenotype $microbiome $Logl $conv $lambda $se_lambda $G1V $seG1V $G2V $seG2V $G12V $seG12V $R1V $seR1V $R2V $seR2V $R12V $seR12V $h2M $seh2M $h2P $seh2P > results_SEM
-mv results_SEM /blue/mateescu/martinezbogg.wisc/model_omics/model_SEM/SEM_blupf90/ASVS/results_SEM${phenotype}.${microbiome}
+mv results_SEM /SEM_blupf90/ASVS/results_SEM${phenotype}.${microbiome}
 
 #Creating a file with the breeding values
-awk '$2 == 4 {print '${phenotype}', '${microbiome}', $0}' solutions > /blue/mateescu/martinezbogg.wisc/model_omics/model_SEM/SEM_blupf90/ASVS/solEBV${phenotype}.${microbiome}
+awk '$2 == 4 {print '${phenotype}', '${microbiome}', $0}' solutions > /SEM_blupf90/ASVS/solEBV${phenotype}.${microbiome}
 
 #Creating a file with prediction error variances
-#awk '{print '${phenotype}', '${microbiome}', $0}' pev_pec_bf90 > /blue/mateescu/martinezbogg.wisc/model_omics/model_SEM/SEM_blupf90/ASVS/pev${phenotype}.${microbiome}
-
+awk '{print '${phenotype}', '${microbiome}', $0}' pev_pec_bf90 > /SEM_blupf90/ASVS/pev${phenotype}.${microbiome}
 
 #Remove files that are heavy like genome, and false pedigree
 rm G.mat*
