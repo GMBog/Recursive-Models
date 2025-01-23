@@ -1,0 +1,30 @@
+DATAFILE
+datafile.dat
+TRAITS
+5 4
+RESIDUAL_VARIANCE
+0.5 0.05 
+0.05 0.5 
+EFFECT
+2 2 cross alpha # mean (column of 1)
+EFFECT
+3 3 cross alpha
+RANDOM
+diagonal
+(CO)VARIANCES
+1 0
+0 1
+EFFECT
+1 1 cross alpha
+RANDOM
+animal
+FILE
+pedfile.ped
+PED_DEPTH
+5
+(CO)VARIANCES
+0.5 0.05  
+0.05 0.5
+OPTION sol se
+OPTION se_covar_function lambda  R_1_2/R_1_1
+OPTION missing -999
