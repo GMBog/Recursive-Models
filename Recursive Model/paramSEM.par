@@ -1,0 +1,28 @@
+#Parameter file for program renf90; it is translated to parameter
+# file for BLUPF90 family programs.
+DATAFILE
+data.dat
+TRAITS
+6 5
+FIELDS_PASSED TO OUTPUT
+
+WEIGHT(S)
+
+RESIDUAL_VARIANCE
+0.5 0
+0 0.5
+EFFECT
+0 6 cov
+EFFECT
+3 3 cross alpha
+EFFECT
+4 4 cross alpha
+EFFECT
+1 1  cross alpha
+RANDOM
+animal
+SNP_FILE
+G.mat
+(CO)VARIANCES
+0.5 0.05
+0.05 0.5
