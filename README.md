@@ -1,21 +1,26 @@
-Structural Equation Models (SEM)
+# Structural Equation Models (SEM) in Animal Breeding and Genetics  
 
-Bash scripts to run Structural Equation models or Recursive models using BLUPF90 software.
+Structural Equation Models (SEM), also known as Recursive Models (RM), are powerful tools in Animal Breeding and Genetics. Introduced to the field by **Prof. Daniel Gianola**, SEMs have been widely used to explore relationships between traits across various species.  
 
-This script will run SEM for the most simple model, 2 traits, with one of them having a phenotypic recursive effect on the other one.
-We will run a bi-trait model where y1 (dependent trait) enters as covariable in the model for y2 (independent trait).
+We, Guillermo and Pedro, developed **bash** and **R codes** to implement SEMs while studying the microbiome and feed efficiency traits in dairy cattle and pigs. Our research, published in the *Journal of Dairy Science* ([DOI: 10.3168/jds.2024-24675](https://doi.org/10.3168/jds.2024-24675)) and forthcoming work on pigs, aims to quantify the **indirect effects of the genome** on phenotypes mediated by the gut microbiome.  
 
-y2 = y1 + Xb + a + e
+## Model Description  
 
+y₁ = Xβ + a + e  
+y₂ = y₁ + Xβ + a + e 
 
+Where:  
+- **y₁**: Trait with a recursive effect on **y₂** (e.g., microbiome)
+- **y₂**: Trait of interest (e.g., RFI, CH4) 
+- **Xβ**: Fixed effects  
+- **a**: Additive genetic effects  
+- **e**: Residual effects  
 
+## Implementation  
 
+This repository provides the code to implement an RM in two scenarios:  
 
+1. **Data available for all traits and animals**
+     
+3. **Data available for one trait across all animals and for the other(s) only in a subset**  
 
-
-To compile results in a single file when all your jobs are done:
-cat /SEM_blupf90/ASVS/results_SEM* > table_ALLresults_SEM.txt
-cat /SEM_blupf90/ASVS/solEBV* > solutions_EBV_SEM.txt
-
-
-For more details on the analysis and results using this script you can read Martinez Boggio et al. (2024) DOI:
