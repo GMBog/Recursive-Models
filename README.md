@@ -1,4 +1,4 @@
-# Structural Equation Models (SEM) in Animal Breeding and Genetics  
+# Recursive Models in Animal Breeding and Genetics  
 
 Structural Equation Models (SEM), also known as Recursive Models (RM), are powerful tools in Animal Breeding and Genetics. Introduced to the field by **Prof. Daniel Gianola**, SEMs have been widely used to explore relationships between traits across various species.  
 
