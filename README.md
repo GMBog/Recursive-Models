@@ -39,7 +39,11 @@ This repository provides the code to implement an RM in two scenarios:
 1. **Data available for all traits and animals**
 
 In that case, the user can fit a recursive model fixing the residual co-variances to 0, and including the trait with recursive effect as a covariable for the other trait in the model.
-For that scenario, codes are available at /
+For that scenario, codes are available at /Recursive Model
      
-3. **Data available for one trait across all animals and for the other(s) only in a subset**  
+2. **Data available for one trait across all animals and for the other(s) only in a subset**  
+
+If the user does not have animals with data for the two traits, so then it is necessary to fit a MTM and then reparametrized to RM using the methods proposed by Varona et al. (2024).
+For this second scenario, codes are available at /MTM to RM
+
 
