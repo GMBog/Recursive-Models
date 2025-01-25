@@ -44,6 +44,6 @@ For that scenario, codes are available at /Recursive Model
 2. **Data available for one trait across all animals and for the other(s) only in a subset**  
 
 If the user does not have animals with data for the two traits, so then it is necessary to fit a MTM and then reparametrized to RM using the methods proposed by Varona et al. (2024).
-For this second scenario, codes are available at /MTM to RM
+For this second scenario, codes are available at /Multi-Trait Model to Recursive Model
 
 
