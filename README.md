@@ -10,27 +10,30 @@ Structural equation models (SEM) are powerful tools that can postulate unidirect
 
 The statistical definition of a recursive model is expressed as:
 
-```latex
-\[
-\Lambda y_i = X_ib + u_i + e_i 
-```
+Λy = Xb + a + e
+
+where b is the vector of fixed effects, y, u, and e are m × 1 vectors of phenotypic measurements, additive genetic effects and residuals of the m traits associated with the ith multivariate record, and X is its corresponding incidence matrix. Λ is an m × m matrix of the recursive parameters with ones on the diagonal and minus the recursive effects of the ith trait on the jth trait (−λ1→j) in some or all the elements below the diagonal.
+
+This RM can be reparametrized as a standard mixed model (MTM) by multiplying all terms of [1] by Λ−1, as follows:
+
+y =  Λ^(-1)Xb + Λ^(-1)u + Λ^(-1)e =  Λ^(-1)Xb + u* + e*
+
+To achieve the inference of the parameters involved, some restrictions must be imposed. In animal breeding models, 2 strategies have been used to achieve statistical identification:
+  **(1) imposing restrictions on the elements of the (co)variance component matrices (Varona et al., 2007)**
+  (2) imposing constraints in the form of linear combinations of explanatory variables to dispose of instrumental variables (Gianola and Sorensen, 2004)
+
+In RM, the recursive parameter λ1→2 is the expected change in trait y₂ for each unit of change in trait y₁, which affects other important parameters such as heritability and genetic correlation.
+
+y₁ = X₁β₁ + a₁ + e₁  
+y₂ = y₁ + X₂β₂ + a₂ + e₂ 
+
+where, y₁ is the trait with a recursive effect on y₂ (e.g., microbiome), y₂ is the trait of interest (e.g., RFI, CH4), Xβ are the fixed effects for each trait, a is the additive genetic effects, e is the residual effect.  
 
 
-We, Guillermo and Pedro, developed **bash** and **R codes** to implement SEMs while studying the microbiome and feed efficiency traits in dairy cattle and pigs. Our research, published in the *Journal of Dairy Science* ([DOI: 10.3168/jds.2024-24675](https://doi.org/10.3168/jds.2024-24675)) and forthcoming work on pigs, aims to quantify the **indirect effects of the genome** on phenotypes mediated by the gut microbiome.  
+## Implementation
+
+We, Guillermo and Pedro, developed **bash** and **R codes** to implement SEM while studying the microbiome and feed efficiency traits in dairy cattle and pigs. Our research, published in the *Journal of Dairy Science* ([DOI: 10.3168/jds.2024-24675](https://doi.org/10.3168/jds.2024-24675)) and forthcoming work on pigs, aims to quantify the **indirect effects of the genome** on phenotypes mediated by the gut microbiome.  
   
-
-y₁ = Xβ + a + e  
-y₂ = y₁ + Xβ + a + e 
-
-Where:  
-- **y₁**: Trait with a recursive effect on **y₂** (e.g., microbiome)
-- **y₂**: Trait of interest (e.g., RFI, CH4) 
-- **Xβ**: Fixed effects  
-- **a**: Additive genetic effects  
-- **e**: Residual effects  
-
-## Implementation  
-
 This repository provides the code to implement an RM in two scenarios:  
 
 1. **Data available for all traits and animals**
