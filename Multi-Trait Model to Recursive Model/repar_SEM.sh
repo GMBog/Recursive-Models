@@ -16,8 +16,8 @@ microbiome=$((col - 17)) #The first microbe is in the column 18
 
 #Setting Input and Output files
 
-INPUTDIR=/usu/pnuez/Ingafood/SEM/ASV
-OUTPUTDIR=/usu/pnuez/Ingafood/SEM/ASV/results
+INPUTDIR=/usu/SEM/ASV
+OUTPUTDIR=/usu/SEM/ASV/results
 
 #Create a directory for each microbe (y1) and phenotype (y2) 
 
