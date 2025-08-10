@@ -1,0 +1,33 @@
+#Parameter file for program renf90; it is translated to parameter
+# file for BLUPF90 family programs.
+DATAFILE
+data_u_hat.dat
+TRAITS
+1
+FIELDS_PASSED TO OUTPUT
+5
+WEIGHT(S)
+
+RESIDUAL_VARIANCE
+0.5
+EFFECT
+3 cross alpha
+EFFECT
+4 cross alpha
+EFFECT
+5 cross alpha
+RANDOM
+animal
+SNP_FILE
+G_matrix
+(CO)VARIANCES
+0.5
+OPTION EM-REML 1000
+OPTION method VCE
+OPTION se_covar_function H2 G_3_3_1_1/(G_3_3_1_1+R_1_1)
+OPTION missingAIPL
+OPTION omit_ainv
+OPTION TauOmega 1.0 0.0
+OPTION AlphaBeta 0.99 0.01
+OPTION tunedG 0
+OPTION missing -999
